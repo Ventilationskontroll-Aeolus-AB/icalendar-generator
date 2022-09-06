@@ -21,7 +21,7 @@ class CalendarAddress
         string $email,
         string $name = null,
         ParticipationStatus $participationStatus = null,
-        CalendarUserType $calendarUserType = null
+        CalendarUserType $calendarUserType = null,
         bool $requiresResponse = false
     ) {
         $this->email = $email;
