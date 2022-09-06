@@ -251,6 +251,10 @@ class Event extends Component implements HasTimezones
         CalendarUserType $calendarUserType = null,
         bool $requiresResponse = false
     ): Event {
+        
+        if ($calendarUserType == null)  
+            $calendarUserType = CalendarUserType::individual();
+
         $this->attendees[] = new CalendarAddress($email, $name, $participationStatus, $calendarUserType, $requiresResponse);
 
         return $this;

@@ -4,6 +4,8 @@ namespace Spatie\IcalendarGenerator\Properties;
 
 use Spatie\IcalendarGenerator\ValueObjects\CalendarAddress;
 
+use Spatie\IcalendarGenerator\Enums\CalendarUserType;
+
 class CalendarAddressProperty extends Property
 {
     private CalendarAddress $calendarAddress;
@@ -18,7 +20,7 @@ class CalendarAddressProperty extends Property
         $this->name = $name;
         $this->calendarAddress = $calendarAddress;
 
-        if ($this->calendarAddress->name && $this->calendarAddress->calendarUserType == null) {
+        if ($this->calendarAddress->name && $this->calendarAddress->calendarUserType == (string) CalendarUserType::individual()) {
             $this->addParameter(Parameter::create('CN', $this->calendarAddress->name));
         }
 
@@ -32,7 +34,7 @@ class CalendarAddressProperty extends Property
             );
         }
         if ($this->calendarAddress->calendarUserType) {
-            $this->addParameter(Parameter::create('CUTYPE',(string) $this->calendarAddress->calendarUserType));
+            $this->addParameter(Parameter::create('CUTYPE',(string) $this->calendarAddress->calendarUserType,  $this->calendarAddress->name));
         }
     }
 
