@@ -4,6 +4,8 @@ namespace Spatie\IcalendarGenerator\ValueObjects;
 
 use Spatie\IcalendarGenerator\Enums\ParticipationStatus;
 
+use Spatie\IcalendarGenerator\Enums\CalendarUserType;
+
 class CalendarAddress
 {
     /** @var string */
