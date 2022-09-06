@@ -29,6 +29,7 @@ class CalendarAddress
         $this->email = $email;
         $this->name = $name;
         $this->participationStatus = $participationStatus;
+        $this->$calendarUserType = $calendarUserType;
         $this->requiresResponse = $requiresResponse;
     }
 }
