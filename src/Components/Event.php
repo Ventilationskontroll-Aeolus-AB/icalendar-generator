@@ -7,6 +7,7 @@ use DateTimeImmutable;
 use DateTimeInterface;
 use DateTimeZone;
 use Spatie\IcalendarGenerator\ComponentPayload;
+use Spatie\IcalendarGenerator\Enums\CalendarUserType;
 use Spatie\IcalendarGenerator\Enums\Classification;
 use Spatie\IcalendarGenerator\Enums\Display;
 use Spatie\IcalendarGenerator\Enums\EventStatus;
@@ -247,9 +248,10 @@ class Event extends Component implements HasTimezones
         string $email,
         string $name = null,
         ParticipationStatus $participationStatus = null,
+        CalendarUserType $calendarUserType = null,
         bool $requiresResponse = false
     ): Event {
-        $this->attendees[] = new CalendarAddress($email, $name, $participationStatus, $requiresResponse);
+        $this->attendees[] = new CalendarAddress($email, $name, $participationStatus, $calendarUserType, $requiresResponse);
 
         return $this;
     }

@@ -14,11 +14,14 @@ class CalendarAddress
     public bool $requiresResponse = false;
 
     public ?ParticipationStatus $participationStatus = null;
+    
+    public ?CalendarUserType $calendarUserType = null;
 
     public function __construct(
         string $email,
         string $name = null,
         ParticipationStatus $participationStatus = null,
+        CalendarUserType $calendarUserType = null
         bool $requiresResponse = false
     ) {
         $this->email = $email;

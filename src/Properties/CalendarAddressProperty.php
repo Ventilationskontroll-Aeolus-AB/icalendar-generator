@@ -31,6 +31,9 @@ class CalendarAddressProperty extends Property
                 Parameter::create('PARTSTAT', (string) $this->calendarAddress->participationStatus)
             );
         }
+        if ($this->calendarAddress->calendarUserType) {
+            $this->addParameter(Parameter::create('CUTYPE',(string) $this->calendarAddress->calendarUserType, $this->calendarAddress->name));
+        }
     }
 
     public function getValue(): string
