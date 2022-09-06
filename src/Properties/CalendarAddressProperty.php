@@ -18,7 +18,7 @@ class CalendarAddressProperty extends Property
         $this->name = $name;
         $this->calendarAddress = $calendarAddress;
 
-        if ($this->calendarAddress->name) {
+        if ($this->calendarAddress->name && $this->calendarAddress->calendarUserType == null) {
             $this->addParameter(Parameter::create('CN', $this->calendarAddress->name));
         }
 
@@ -32,7 +32,7 @@ class CalendarAddressProperty extends Property
             );
         }
         if ($this->calendarAddress->calendarUserType) {
-            $this->addParameter(Parameter::create('CUTYPE',(string) $this->calendarAddress->calendarUserType, $this->calendarAddress->name));
+            $this->addParameter(Parameter::create('CUTYPE',(string) $this->calendarAddress->calendarUserType));
         }
     }
 
